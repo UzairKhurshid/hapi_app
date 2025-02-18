@@ -26,9 +26,12 @@ Docker (optional, for containerized setup)
 # Setup
 Clone the repository:
 git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+
 cd YOUR_REPO_NAME
+
 Install dependencies:
 npm install
+
 Configure environment variables:
 Copy .env.example to .env and update database credentials.
 
