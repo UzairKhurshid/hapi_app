@@ -20,7 +20,9 @@ This is a RESTful API built using Hapi.js and Knex.js with PostgreSQL. The proje
 
 # Installation
 PrerequisitesNode.js (>= 14)
+
 PostgreSQL
+
 Docker (optional, for containerized setup)
 
 # Setup
