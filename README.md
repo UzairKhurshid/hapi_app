@@ -50,7 +50,7 @@ User Email: uzairkhurshid12@gmail.com
 User Password: uzair@123
 
 # Start Server
-npm start
+npm run dev
 
 # Running with DockerBuild and start the containers:
 docker-compose up --buildThe API will be available at http://localhost:3000
