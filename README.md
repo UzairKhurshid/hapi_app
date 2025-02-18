@@ -27,7 +27,7 @@ Docker (optional, for containerized setup)
 
 # Setup
 Clone the repository:
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+git clone https://github.com/UzairKhurshid/hapi_app.git
 
 cd YOUR_REPO_NAME
 
