@@ -43,6 +43,12 @@ npx knex migrate:latest
 # Run Seeder:
 npx knex seed:run
 
+This will create a user in DB,use credentials given below to login.
+
+User Email:uzairkhurshid12@gmail.com
+
+User Password:uzair@123
+
 # Start Server
 npm start
 
