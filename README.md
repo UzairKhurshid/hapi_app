@@ -23,6 +23,8 @@ PrerequisitesNode.js (>= 14)
 
 PostgreSQL
 
+Knex
+
 Docker (optional, for containerized setup)
 
 # Setup
