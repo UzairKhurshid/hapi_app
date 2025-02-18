@@ -56,3 +56,6 @@ npm run dev
 
 # Running with DockerBuild and start the containers:
 docker-compose up --buildThe API will be available at http://localhost:3000
+
+# Postman Collection
+This project's Postman collection is attached in the root directory (project_1.postman_collection.json)
