@@ -79,5 +79,8 @@ npx knex seed:run
 
 The API will be available at http://localhost:3000
 
+# API Documentation
+The API documentation is available in the hapi_documentation.txt file located in the root directory.
+
 # Postman Collection
 This project's Postman collection is attached in the root directory (hapi_app_postman.json)
