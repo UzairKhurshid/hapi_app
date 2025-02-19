@@ -31,7 +31,7 @@ Docker (optional, for containerized setup)
 Clone the repository:
 git clone https://github.com/UzairKhurshid/hapi_app.git
 
-cd project_1
+cd hapi_app
 
 Install dependencies:
 npm install
