@@ -147,16 +147,17 @@ const deleteUser = async (request, h) => {
 // Upload File
 const uploadFile = async (request, h) => {
     try {
-      const file = request.payload.file; // Get uploaded file from payload
-      const fileUrl = await userHelper.uploadFileToS3(file); // Upload file to S3
-      return h.response({
-        message: 'File uploaded successfully',
-        fileUrl: fileUrl, // S3 URL of the uploaded file
-      }).code(200);
+        const file = request.payload.file;
+        const fileUrl = await userHelper.uploadFileToS3(file)
+
+        return h.response({
+            message: 'File uploaded successfully',
+            fileUrl: fileUrl,
+        }).code(200);
     } catch (error) {
-      return h.response({
-        message: error.message,
-      }).code(500);
+        return h.response({
+            message: error.message,
+        }).code(500);
     }
 };
 

@@ -1,27 +1,34 @@
-const s3 = require('../config/aws');
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const fs = require("fs");
+const path = require("path");
+require("dotenv").config();
 
+const s3 = new S3Client({
+  region: process.env.AWS_REGION, 
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
+});
 const uploadFileToS3 = async (file) => {
-    const fileName = `${Date.now()}-${file.hapi.filename}`; // Unique file name
-    const fileStream = file._data; // Get the file stream
-  
-    // S3 upload parameters
-    const params = {
-      Bucket: process.env.AWS_BUCKET_NAME, // S3 Bucket Name
-      Key: fileName, // File name in S3
-      Body: fileStream, // File stream to upload
-      ContentType: file.hapi.headers['content-type'], // Content Type
-      ACL: 'public-read', // Make the file publicly readable
-    };
-  
-    try {
-      // Upload file to S3
-      const data = await s3.upload(params).promise();
-      return data.Location; // Return the URL of the uploaded file
-    } catch (error) {
-      throw new Error('File upload failed: ' + error.message);
-    }
+  if (!file || !file._data) {
+    throw new Error("Invalid file data");
+  }
+
+  const buffer = file._data; // Extract file buffer from Hapi.js
+  const fileName = `uploads/${Date.now()}-${file.hapi.filename}`;
+
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: fileName,
+    Body: buffer,
+    ContentType: file.hapi.headers["content-type"],
+    ContentLength: buffer.length,
+  };
+
+  await s3.send(new PutObjectCommand(params));
+
+  return `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`;
 };
 
-module.exports = {
-    uploadFileToS3
-}
+module.exports = { uploadFileToS3 };

@@ -31,5 +31,18 @@ module.exports = [
         path: '/api/users/{id}',
         options: userValidation.deleteUserValidation,
         handler: UserController.deleteUser,
+    },
+    {
+        method: 'POST',
+        path: '/api/upload',
+        options: {
+            payload: {
+                output: 'stream', // Handle file as a stream
+                parse: true,
+                multipart: true, // Enable multipart form-data
+                maxBytes: 5 * 1024 * 1024, // 5MB file limit
+            },
+        },
+        handler: UserController.uploadFile,
     }
 ];

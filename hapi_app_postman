@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"johndoe12@gmail.com\",\r\n    \"password\":\"john@123\"\r\n}",
+							"raw": "{\r\n    \"email\":\"uzairkhurshid12@gmail.com\",\r\n    \"password\":\"uzair@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,7 +224,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"jane doe\",\r\n    \"avatar\":\"https://www.freecodecamp.org/news/content/images/size/w2000/2023/04/pexels-cottonbro-studio-3584994.jpg\"\r\n}",
+							"raw": "{\r\n    \"username\":\"jane doe\",\r\n    \"avatar\":\"https://hapiapp001.s3.us-east-1.amazonaws.com/uploads/1739988435269-img.png\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -232,12 +232,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}users/7",
+							"raw": "{{url}}users/1",
 							"host": [
 								"{{url}}users"
 							],
 							"path": [
-								"7"
+								"1"
 							]
 						}
 					},
@@ -292,7 +292,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/UZAIR/Desktop/img.png"
 								}
 							]
 						},
