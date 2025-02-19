@@ -49,7 +49,7 @@ Create You Postgres DB:
 
 # Run database migrations:
 ```
-npx knex migrate:latest 
+npx knex migrate:latest --env development
 ```
 
 # Run Seeder:
@@ -68,9 +68,13 @@ User Password: uzair@123
 npm run dev
 ```
 
-# Running with DockerBuild and start the containers:
+# Docker Configuration:
 ```
-docker-compose up --build
+docker-compose up --build  // build containers
+docker ps // List containers
+docker exec -it hapi_app sh
+npx knex migrate:latest --env development
+npx knex seed:run
 ```
 
 The API will be available at http://localhost:3000
