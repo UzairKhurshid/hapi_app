@@ -80,4 +80,4 @@ npx knex seed:run
 The API will be available at http://localhost:3000
 
 # Postman Collection
-This project's Postman collection is attached in the root directory (project_1.postman_collection.json)
+This project's Postman collection is attached in the root directory (hapi_app_postman.json)
