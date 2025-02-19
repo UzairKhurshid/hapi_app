@@ -1,0 +1,130 @@
+Authentication Routes:
+
+1. Register User
+Endpoint: POST /api/register
+Request Body (JSON):
+{
+  "username": "JohnDoe",
+  "email": "johndoe@example.com",
+  "password": "SecurePassword123",
+  "role": "user"
+}
+Response:
+201 Created : {
+  message:"User registered",
+  user: user-object
+}
+400 Bad Request - Validation error
+
+2. User Login
+Endpoint: POST /api/login
+Request Body (JSON):
+{
+  "email": "johndoe@example.com",
+  "password": "SecurePassword123"
+}
+Response:
+200 OK  
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5OTg5NDYwLCJleHAiOjE3Mzk5OTMwNjB9.LlpO2IlWWyEd1Aw0iB1UiIcTRIDhVUa5wex6DOhp0eE"
+}
+401 Unauthorized - Invalid credentials
+
+User Routes:
+
+1. Get All Users
+Endpoint: GET /api/users
+Authentication: Required (JWT)
+Query Parameters:
+page (integer, default: 1) - Pagination page
+limit (integer, default: 10) - Number of users per page
+Response:
+200 OK - Returns a list of users
+{
+    "page": 1,
+    "totalPages": 1,
+    "totalUsers": "2",
+    "users": [ Array of user objects ]
+}
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
+2. Get User by ID
+Endpoint: GET /api/users/{id}
+Authentication: Required (JWT)
+Path Parameters:
+id (integer, required) - User ID
+Response:
+200 OK - Returns user details
+{  user object }
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
+3. Create a New User
+Endpoint: POST /api/users
+Authentication: Required (JWT, Admin only)
+Request Body (JSON):
+{
+  "username": "JohnDoe",
+  "email": "johndoe@example.com",
+  "password": "SecurePassword123",
+  "role": "admin"
+}
+Response:
+201 Created - User successfully created
+{
+    "message": "User created successfully",
+    "user": user-object
+}
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
+4. Update User
+Endpoint: PUT /api/users/{id}
+Authentication: Required (JWT, Admin only)
+Path Parameters:
+id (integer, required) - User ID
+Request Body (JSON, optional fields):
+{
+  "username": "UpdatedName"
+}
+Response:
+200 OK - User successfully updated
+{ user object }
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
+5. Delete User
+Endpoint: DELETE /api/users/{id}
+Authentication: Required (JWT, Admin only)
+Path Parameters:
+id (integer, required) - User ID
+Response:
+200 OK - User deleted
+{
+    "message": "User deleted"
+}
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
+5. Upload File
+Endpoint: DELETE /api/upload
+Authentication: Required
+form-data:{
+  file
+}
+Response:
+200 OK -
+{
+    "message": "File uploaded successfully",
+    "fileUrl": ""
+} 
+400 Bad Request - Validation error
+401 Unauthorized - Missing or invalid token
+403 Forbidden - Only admins can delete users
+
